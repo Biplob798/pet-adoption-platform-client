@@ -1,0 +1,162 @@
+[
+    {
+      "category": "Cats",
+      "image": "cat1.jpg",
+      "name": "Whiskers",
+      "age": 2,
+      "location": "Living Room",
+      "shortDescription": "Adorable cat with fluffy fur."
+    },
+    {
+      "category": "Cats",
+      "image": "cat2.jpg",
+      "name": "Mittens",
+      "age": 3,
+      "location": "Bedroom",
+      "shortDescription": "Playful cat who loves to cuddle."
+    },
+    {
+      "category": "Cats",
+      "image": "cat3.jpg",
+      "name": "Smokey",
+      "age": 1,
+      "location": "Sunroom",
+      "shortDescription": "Elegant cat with a sleek coat."
+    },
+    {
+      "category": "Cats",
+      "image": "cat4.jpg",
+      "name": "Oreo",
+      "age": 4,
+      "location": "Kitchen",
+      "shortDescription": "Black and white cat with a friendly demeanor."
+    },
+    {
+      "category": "Dogs",
+      "image": "dog1.jpg",
+      "name": "Buddy",
+      "age": 3,
+      "location": "Backyard",
+      "shortDescription": "Loyal dog who enjoys long walks."
+    },
+    {
+      "category": "Dogs",
+      "image": "dog2.jpg",
+      "name": "Max",
+      "age": 4,
+      "location": "Park",
+      "shortDescription": "Energetic dog that loves to fetch."
+    },
+    {
+      "category": "Dogs",
+      "image": "dog3.jpg",
+      "name": "Coco",
+      "age": 2,
+      "location": "Living Room",
+      "shortDescription": "Fluffy dog with a gentle disposition."
+    },
+    {
+      "category": "Dogs",
+      "image": "dog4.jpg",
+      "name": "Rocky",
+      "age": 5,
+      "location": "Yard",
+      "shortDescription": "Adventurous dog with a playful spirit."
+    },
+    {
+      "category": "Rabbit",
+      "image": "rabbit1.jpg",
+      "name": "Fluffy",
+      "age": 1,
+      "location": "Garden",
+      "shortDescription": "Cute rabbit with soft fur."
+    },
+    {
+      "category": "Rabbit",
+      "image": "rabbit2.jpg",
+      "name": "Bunny",
+      "age": 2,
+      "location": "Indoor Hutch",
+      "shortDescription": "Adorable bunny that loves carrots."
+    },
+    {
+      "category": "Rabbit",
+      "image": "rabbit3.jpg",
+      "name": "Thumper",
+      "age": 1,
+      "location": "Play Area",
+      "shortDescription": "Playful rabbit with a twitchy nose."
+    },
+    {
+      "category": "Rabbit",
+      "image": "rabbit4.jpg",
+      "name": "Snowball",
+      "age": 3,
+      "location": "Backyard",
+      "shortDescription": "White rabbit with a fluffy tail."
+    },
+    {
+      "category": "Fish",
+      "image": "fish1.jpg",
+      "name": "Bubbles",
+      "age": 1,
+      "location": "Aquarium",
+      "shortDescription": "Colorful fish in a vibrant aquarium."
+    },
+    {
+      "category": "Fish",
+      "image": "fish2.jpg",
+      "name": "Splash",
+      "age": 2,
+      "location": "Tropical Tank",
+      "shortDescription": "Playful fish that enjoys swimming near the surface."
+    },
+    {
+      "category": "Fish",
+      "image": "fish3.jpg",
+      "name": "Neon",
+      "age": 1,
+      "location": "Marine Exhibit",
+      "shortDescription": "Brightly colored fish with neon stripes."
+    },
+    {
+      "category": "Fish",
+      "image": "fish4.jpg",
+      "name": "Coral",
+      "age": 1,
+      "location": "Reef",
+      "shortDescription": "Exotic fish with vibrant coral surroundings."
+    },
+    {
+      "category": "More",
+      "image": "more1.jpg",
+      "name": "Mystery",
+      "age": null,
+      "location": "Unknown",
+      "shortDescription": "Discover more about this mysterious creature."
+    },
+    {
+      "category": "More",
+      "image": "more2.jpg",
+      "name": "Explorer",
+      "age": null,
+      "location": "Uncharted Territory",
+      "shortDescription": "Adventure awaits with this unique creature."
+    },
+    {
+      "category": "More",
+      "image": "more3.jpg",
+      "name": "Galaxy",
+      "age": null,
+      "location": "Cosmic Realm",
+      "shortDescription": "Journey into the unknown with Galaxy the creature."
+    },
+    {
+      "category": "More",
+      "image": "more4.jpg",
+      "name": "Enigma",
+      "age": null,
+      "location": "Mystical Forest",
+      "shortDescription": "Unravel the secrets of Enigma in the enchanted forest."
+    }
+  ]

@@ -1,0 +1,37 @@
+[
+    {
+      "id": 1,
+      "category": "Cats",
+      "title": "Adorable Kittens",
+      "img": "https://i.ibb.co/kJfMmd4/cat.jpg",
+      "shortDescription": "Explore our collection of adorable kittens."
+    },
+    {
+      "id": 2,
+      "category": "Dogs",
+      "title": "Playful Puppies",
+      "img": "https://i.ibb.co/yp4Zr38/docs.jpg",
+      "shortDescription": "Discover the playful world of puppies."
+    },
+    {
+      "id": 3,
+      "category": "Rabbit",
+      "title": "Fluffy Rabbits",
+      "img": "https://i.ibb.co/ZmLRws2/rabbit.jpg",
+      "shortDescription": "Meet our fluffy and adorable rabbits."
+    },
+    {
+      "id": 4,
+      "category": "Fish",
+      "title": "Colorful Fish",
+      "img": "https://i.ibb.co/mtx81mb/fish.jpg",
+      "shortDescription": "Dive into the vibrant world of colorful fish."
+    },
+    {
+      "id": 5,
+      "category": "More",
+      "title": "Explore More",
+      "img": "https://i.ibb.co/SthWXmP/others.jpg",
+      "shortDescription": "Discover more exciting categories."
+    }
+  ]
