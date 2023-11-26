@@ -4,11 +4,14 @@ import Home from "../pages/home/home/Home";
 import PetListing from "../pages/petListing/PetListing";
 import DonationCampings from "../pages/donationCampings/DonationCampings";
 import Login from "../pages/logIn/Login";
+import Error from "../pages/error/Error";
+import SignUp from "../pages/signUp/SignUp";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<Error></Error>,
     children:[
       {
       path:'/',
@@ -27,8 +30,8 @@ export const router = createBrowserRouter([
       element:<Login></Login>
     },
       {
-      path:'/',
-      element:<Home></Home>
+      path:'/signUp',
+      element:<SignUp></SignUp>
     },
   ]
   },
