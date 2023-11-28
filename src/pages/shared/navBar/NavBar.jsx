@@ -24,7 +24,7 @@ const NavBar = () => {
         <NavLink to="donationCampings">Donation Campings </NavLink>
       </li>
       <li>
-        <Link to="/">
+        <Link to="/dashboard/cart">
           <button className="btn">
           <MdOutlinePets />
 

@@ -8,6 +8,13 @@ import Error from "../pages/error/Error";
 import SignUp from "../pages/signUp/SignUp";
 import DonationDetails from "../pages/donationDetails/DonationDetails";
 import RecommendedSection from "../components/recommendedSection/RecommendedSection";
+import Dashboard from "../layOut/Dashboard";
+import Cart from "../pages/dashboard/cart/Cart";
+import PrivateRoute from "./PrivateRoute";
+import AllUsers from "../pages/dashboard/allUsers/AllUsers";
+import AllPets from "../pages/dashboard/allPets/AllPets";
+import AllDonation from "../pages/dashboard/allDonation/AllDonation";
+import AdditionalInfo from "../pages/dashboard/additionalInfo/AdditionalInfo";
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +51,38 @@ export const router = createBrowserRouter([
       {
         path: "/signUp",
         element: <SignUp></SignUp>,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "cart",
+        element: <Cart></Cart>,
+      },
+      // admin route 
+      {
+        path: 'allUsers',
+        element:<AllUsers></AllUsers>
+      },
+      {
+        path: 'allPets',
+        element:<AllPets></AllPets>
+      },
+     
+      {
+        path: 'allDonation',
+        element:<AllDonation></AllDonation>
+      },
+      {
+        path: 'additionalInfo',
+        element:<AdditionalInfo></AdditionalInfo>
       },
     ],
   },

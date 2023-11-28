@@ -1,13 +1,15 @@
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { FaGithub, FaGoogle } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import SocialLogin from "../shared/socialLogin/SocialLogin";
 
 const SignUp = () => {
-  const { createUser, updateUserProfile } = useAuth();
+  const { createUser, handleUpdateProfile } = useAuth();
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic();
   const {
     register,
     handleSubmit,
@@ -19,18 +21,31 @@ const SignUp = () => {
   const onSubmit = (data) => {
     console.log(data);
     createUser(data.email, data.password).then((result) => {
-      const loggedUse = result.user;
-      console.log(loggedUse);
-      reset();
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "User created successfully.",
-        showConfirmButton: false,
-        timer: 1500,
-      }).catch((error) => console.log(error));
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      handleUpdateProfile(data.name, data.photoURL)
+        .then(async () => {
+          const userInfo = { name: data.name, email: data.email };
+
+          await axiosPublic.post("/users", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              console.log("user created add to the data base");
+              reset();
+              Swal.fire({
+                position: "top-right",
+                icon: "success",
+                title: "Your Sign Up successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/");
+            }
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     });
-    navigate('/');
   };
 
   // backGroundImage
@@ -134,7 +149,7 @@ const SignUp = () => {
                 <input
                   className="btn btn-primary"
                   type="submit"
-                  value="login"
+                  value="SignUp"
                 />
                 <h2 className="mt-2">
                   Already Have a Account <Link to="/login">Please Login</Link>
@@ -143,19 +158,7 @@ const SignUp = () => {
               <div className="divider">OR</div>
 
               {/* social login  */}
-
-              <div>
-                <div className="flex justify-between items-center mb-2 border p-2 ">
-                  {" "}
-                  <FaGoogle />
-                  <h2>Google</h2>
-                </div>
-                <div className="flex justify-between items-center  border p-2">
-                  {" "}
-                  <FaGithub></FaGithub>
-                  <h2>Github</h2>
-                </div>
-              </div>
+                  <SocialLogin></SocialLogin>
             </form>
           </div>
         </div>

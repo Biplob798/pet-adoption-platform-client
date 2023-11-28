@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { FaGithub, FaGoogle } from "react-icons/fa6";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-simple-captcha';
+import {
+  loadCaptchaEnginge,
+  LoadCanvasTemplate,
+  validateCaptcha,
+} from "react-simple-captcha";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
-
+import SocialLogin from "../shared/socialLogin/SocialLogin";
 
 const Login = () => {
-  const{signInUser} = useAuth()
+  const { signInUser } = useAuth();
   // const captchaRef = useRef(null)
-  const [disabled,setDisabled] =useState(true)
+  // eslint-disable-next-line no-unused-vars
+  const [disabled, setDisabled] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.form?.pathname || "/";
 
-  useEffect(()=>{
-    loadCaptchaEnginge(6); 
-  },[])
-
-
-
-
+  useEffect(() => {
+    loadCaptchaEnginge(6);
+  }, []);
 
   const handleSignInUser = (e) => {
     e.preventDefault();
@@ -53,10 +53,9 @@ const Login = () => {
       });
       navigate(from, { replace: true });
     });
+  };
 
-  }
-
-  // handleCaptcha 
+  // handleCaptcha
   const handleValidateCaptcha = (e) => {
     const user_captcha_value = e.target.value;
     if (validateCaptcha(user_captcha_value)) {
@@ -67,8 +66,7 @@ const Login = () => {
     console.log(user_captcha_value);
   };
 
-
-    // backGroundImage
+  // backGroundImage
   const backGroundImage = {
     backgroundImage: `url(https://i.ibb.co/xhM9r0p/bg.png)`,
     backgroundSize: "cover",
@@ -114,7 +112,7 @@ const Login = () => {
               </div>
               <div className="form-control text-white">
                 <label className="label">
-                <LoadCanvasTemplate />
+                  <LoadCanvasTemplate />
                 </label>
                 <input
                   onBlur={handleValidateCaptcha}
@@ -125,36 +123,27 @@ const Login = () => {
                   className="input input-bordered"
                   required
                 />
-               <button  className="btn btn-outline btn-sm mt-3">Validate</button>
-
+                <button className="btn btn-outline btn-sm mt-3">
+                  Validate
+                </button>
               </div>
               <div className="form-control mt-6 ">
                 <input
-                disabled={false}
+                  disabled={false}
                   className="btn btn-primary"
                   type="submit"
                   value="login"
                 />
                 <h2 className="mt-2">
-                  New Here create account <Link to="/signUp">Please SignUp</Link>
+                  New Here create account{" "}
+                  <Link to="/signUp">Please SignUp</Link>
                 </h2>
               </div>
               <div className="divider">OR</div>
 
               {/* social login  */}
 
-              <div>
-                <div className="flex justify-between items-center mb-2 border p-2 ">
-                  {" "}
-                  <FaGoogle />
-                  <h2>Google</h2>
-                </div>
-                <div className="flex justify-between items-center  border p-2">
-                  {" "}
-                  <FaGithub></FaGithub>
-                  <h2>Github</h2>
-                </div>
-              </div>
+              <SocialLogin></SocialLogin>
             </form>
           </div>
         </div>
