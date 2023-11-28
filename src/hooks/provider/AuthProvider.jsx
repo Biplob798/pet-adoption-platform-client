@@ -9,7 +9,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
-import auth from "../config/firebase.config";
+import auth from "../../config/firebase.config";
+
 // import axios from "axios";
 
 export const AuthContext = createContext(null);
@@ -18,7 +19,7 @@ export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   //   create User
