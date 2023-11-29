@@ -69,7 +69,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/cart">
+                <NavLink to="/dashboard/myAddPets">
                   <FaRegAddressBook />
                   My Add Pets- {pets.length}
                 </NavLink>

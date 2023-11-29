@@ -15,6 +15,13 @@ import AllUsers from "../pages/dashboard/allUsers/AllUsers";
 import AllPets from "../pages/dashboard/allPets/AllPets";
 import AllDonation from "../pages/dashboard/allDonation/AllDonation";
 import AdditionalInfo from "../pages/dashboard/additionalInfo/AdditionalInfo";
+import AddPet from "../pages/dashboard/usersDashboard/addPet/AddPet";
+import MyAddPets from "../pages/dashboard/usersDashboard/myAddPets/MyAddPets";
+import AdoptionRequest from "../pages/dashboard/usersDashboard/adoptionRequest/AdoptionRequest";
+import CreateDonationCamping from "../pages/dashboard/usersDashboard/createDonationCamping/CreateDonationCamping";
+import MyDonationCamping from "../pages/dashboard/usersDashboard/myDonationCamping/MyDonationCamping";
+import MyDonation from "../pages/dashboard/usersDashboard/myDonation/MyDonation";
+import UpdatePet from "../pages/dashboard/componet/UpdatePet";
 
 export const router = createBrowserRouter([
   {
@@ -62,9 +69,39 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      // user route 
       {
         path: "cart",
         element: <Cart></Cart>,
+      },
+      {
+        path: "updateItem/:id",
+        element: <UpdatePet></UpdatePet>,
+        loader:({params})=>fetch(`http://localhost:5000/pet/${params.id}`)
+      },
+      {
+        path: "addPet",
+        element: <AddPet></AddPet>,
+      },
+      {
+        path: "myAddPets",
+        element: <MyAddPets></MyAddPets>,
+      },
+      {
+        path: "adoptionRequest",
+        element: <AdoptionRequest></AdoptionRequest>,
+      },
+      {
+        path: "createDonationCamping",
+        element: <CreateDonationCamping></CreateDonationCamping>,
+      },
+      {
+        path: "myDonationCamping",
+        element: <MyDonationCamping></MyDonationCamping>,
+      },
+      {
+        path: "myDonation",
+        element: <MyDonation></MyDonation>,
       },
       // admin route 
       {
