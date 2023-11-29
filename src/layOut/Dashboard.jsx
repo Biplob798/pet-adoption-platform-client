@@ -11,10 +11,11 @@ import { MdOutlinePets } from "react-icons/md";
 
 import { NavLink, Outlet } from "react-router-dom";
 import usePets from "../hooks/usePets";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   const [pets] = usePets();
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
   return (
     <div className="flex">
       {/*dashboard sidebar  */}
