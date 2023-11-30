@@ -22,6 +22,8 @@ import CreateDonationCamping from "../pages/dashboard/usersDashboard/createDonat
 import MyDonationCamping from "../pages/dashboard/usersDashboard/myDonationCamping/MyDonationCamping";
 import MyDonation from "../pages/dashboard/usersDashboard/myDonation/MyDonation";
 import UpdatePet from "../pages/dashboard/componet/UpdatePet";
+import UserHome from "../pages/dashboard/usersDashboard/userHome/UserHome";
+import AdminHome from "../pages/dashboard/adminHome/AdminHome";
 
 export const router = createBrowserRouter([
   {
@@ -69,15 +71,20 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
-      // user route 
+      // user route
+      {
+        path: "userHome",
+        element: <UserHome></UserHome>,
+      },
       {
         path: "cart",
         element: <Cart></Cart>,
       },
+
       {
         path: "updateItem/:id",
         element: <UpdatePet></UpdatePet>,
-        loader:({params})=>fetch(`http://localhost:5000/pet/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/pet/${params.id}`),
       },
       {
         path: "addPet",
@@ -103,23 +110,27 @@ export const router = createBrowserRouter([
         path: "myDonation",
         element: <MyDonation></MyDonation>,
       },
-      // admin route 
+      // admin route
       {
-        path: 'allUsers',
-        element:<AllUsers></AllUsers>
+        path: "adminHome",
+        element: <AdminHome></AdminHome>,
       },
       {
-        path: 'allPets',
-        element:<AllPets></AllPets>
-      },
-     
-      {
-        path: 'allDonation',
-        element:<AllDonation></AllDonation>
+        path: "allUsers",
+        element: <AllUsers></AllUsers>,
       },
       {
-        path: 'additionalInfo',
-        element:<AdditionalInfo></AdditionalInfo>
+        path: "allPets",
+        element: <AllPets></AllPets>,
+      },
+
+      {
+        path: "allDonation",
+        element: <AllDonation></AllDonation>,
+      },
+      {
+        path: "additionalInfo",
+        element: <AdditionalInfo></AdditionalInfo>,
       },
     ],
   },

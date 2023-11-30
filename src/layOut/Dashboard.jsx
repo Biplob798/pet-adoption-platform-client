@@ -27,7 +27,7 @@ const Dashboard = () => {
               <li>
                 <NavLink to="/dashboard/adminHome">
                   <FaHome />
-                 Home
+                Admin Home
                 </NavLink>
               </li>
               <li>
@@ -113,7 +113,7 @@ const Dashboard = () => {
         </ul>
       </div>
       {/* dashboard  */}
-      <div className="flex-1 p-8 bg-white">
+      <div className="flex-1 p-8 bg-blue-100">
         <Outlet></Outlet>
       </div>
     </div>

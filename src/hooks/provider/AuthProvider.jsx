@@ -22,7 +22,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const axiosPublic =useAxiosPublic()
+  const axiosPublic = useAxiosPublic();
 
   //   create User
 
@@ -64,23 +64,21 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      if(currentUser){
-        // todo 
-          // get token and store client side
-          const userInfo = { email: currentUser?.email };
-          axiosPublic.post("/jwt", userInfo).then((res) => {
-            if (res.data.token) {
-              localStorage.setItem("access-token", res.data.token);
-              setIsLoading(false);
-            }
-          });
-      }
-      else{
-        // todo 
+      if (currentUser) {
+        // todo
+        // get token and store client side
+        const userInfo = { email: currentUser?.email };
+        axiosPublic.post("/jwt", userInfo).then((res) => {
+          if (res.data.token) {
+            localStorage.setItem("access-token", res.data.token);
+            setIsLoading(false);
+          }
+        });
+      } else {
+        // todo
         localStorage.removeItem("access-token");
         setIsLoading(false);
       }
-      setIsLoading(false);
     });
     return () => {
       return unSubscribe();

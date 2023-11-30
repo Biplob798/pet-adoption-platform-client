@@ -3,10 +3,9 @@ import useAuth from "../../../hooks/useAuth";
 import { MdOutlinePets } from "react-icons/md";
 import usePets from "../../../hooks/usePets";
 
-
 const NavBar = () => {
   const { user, logOut } = useAuth();
-  const [pets]=usePets()
+  const [pets] = usePets();
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -23,28 +22,17 @@ const NavBar = () => {
       <li>
         <NavLink to="donationCampings">Donation Campings </NavLink>
       </li>
-      <li>
+      {
+        user?<><li>
         <Link to="/dashboard/cart">
           <button className="btn">
-          <MdOutlinePets />
+            <MdOutlinePets />
 
             <div className="badge badge-secondary">+{pets.length}</div>
           </button>
         </Link>
-      </li>
-
-      <>
-        {user ? (
-          <>
-            <span>{user?.displayName}</span>
-            <button onClick={handleLogOut} className="btn">
-              Log Out
-            </button>
-          </>
-        ) : (
-          <NavLink to="/login">Login</NavLink>
-        )}
-      </>
+      </li></>:<></>
+      }
     </>
   );
   return (

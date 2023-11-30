@@ -19,7 +19,6 @@ const PetListing = () => {
       <Helmet>
         <title>Pet Adoption || Pet Listing</title>
       </Helmet>
-      <h2 className="text-2xl">This is Pet Listing page</h2>
       <Cover img={listingCover} title={"Pet Adoption"}></Cover>
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList>
@@ -30,18 +29,17 @@ const PetListing = () => {
           <Tab>Others</Tab>
         </TabList>
         <TabPanel>
-         <ListingTab items={cats}></ListingTab>
+          <ListingTab items={cats}></ListingTab>
         </TabPanel>
         <TabPanel>
-         <ListingTab items={dogs}></ListingTab>
+          <ListingTab items={dogs}></ListingTab>
         </TabPanel>
         <TabPanel>
-         <ListingTab items={rabbits}></ListingTab>
+          <ListingTab items={rabbits}></ListingTab>
         </TabPanel>
         <TabPanel>
-         <ListingTab items={fishes}></ListingTab>
+          <ListingTab items={fishes}></ListingTab>
         </TabPanel>
-       
       </Tabs>
     </div>
   );

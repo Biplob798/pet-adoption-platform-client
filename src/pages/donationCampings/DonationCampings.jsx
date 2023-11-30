@@ -27,7 +27,6 @@ const DonationCamping = () => {
       <Helmet>
         <title>Pet Adoption || Pet Listing</title>
       </Helmet>
-      <h2 className="text-2xl">This is Pet Listing page</h2>
       <Cover img={listingCover} title={"Pet Adoption"}></Cover>
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList>
