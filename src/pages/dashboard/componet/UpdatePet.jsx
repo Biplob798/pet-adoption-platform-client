@@ -9,9 +9,9 @@ const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const UpdatePet = () => {
-    const {name,short,age,category,long,_id} =useLoaderData()
-   
-    const { register, handleSubmit,reset } = useForm();
+  const { name, short, age, category, long, _id } = useLoaderData();
+
+  const { register, handleSubmit, reset } = useForm();
   const axiosPublic = useAxiosPublic();
   const onSubmit = async (data) => {
     console.log(data);
@@ -34,27 +34,33 @@ const UpdatePet = () => {
         image: res.data.data.display_url,
       };
 
-      const petRes = await axios.patch(`http://localhost:5000/pet/${_id}`, petItem);
+      const petRes = await axios.patch(
+        `https://pet-adoption-platform-server-eight.vercel.app/pet/${_id}`,
+        petItem
+      );
       console.log(petRes.data);
-      if(petRes.data.modifiedCount > 0){
-        reset()
+      if (petRes.data.modifiedCount > 0) {
+        reset();
         Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: `${data.name}Your Pet has been updated`,
-            showConfirmButton: false,
-            timer: 1500
-          });
+          position: "top-end",
+          icon: "success",
+          title: `${data.name}Your Pet has been updated`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
     }
 
     console.log("url", res.data);
   };
 
-    return (
-        <div>
-           <SectionTitle subHeading={'Update Pet'} heading={'My Pet Update'}></SectionTitle>
-           <div>
+  return (
+    <div>
+      <SectionTitle
+        subHeading={"Update Pet"}
+        heading={"My Pet Update"}
+      ></SectionTitle>
+      <div>
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* input filed  */}
           <div className="form-control w-full my-6">
@@ -62,7 +68,7 @@ const UpdatePet = () => {
               <span className="label-text">Pet name</span>
             </label>
             <input
-            defaultValue={name}
+              defaultValue={name}
               {...register("name", { required: true })}
               type="text"
               placeholder="Location name"
@@ -75,7 +81,6 @@ const UpdatePet = () => {
               <span className="label-text">Location name</span>
             </label>
             <input
-
               {...register("location", { required: true })}
               type="text"
               placeholder="Location name"
@@ -109,7 +114,7 @@ const UpdatePet = () => {
                 <span className="label-text">Age</span>
               </label>
               <input
-              defaultValue={age}
+                defaultValue={age}
                 {...register("age", { required: true })}
                 type="number"
                 placeholder="price "
@@ -119,13 +124,13 @@ const UpdatePet = () => {
           </div>
           {/* pet details  */}
           <textarea
-          defaultValue={short}
+            defaultValue={short}
             {...register("short", { required: true })}
             className="textarea textarea-bordered"
             placeholder="short description"
           ></textarea>
           <textarea
-          defaultValue={long}
+            defaultValue={long}
             {...register("long", { required: true })}
             className="textarea textarea-bordered"
             placeholder="Long description"
@@ -142,12 +147,11 @@ const UpdatePet = () => {
 
           <button {...register("recipe")} className="btn btn-primary mt-4">
             Update Pet <MdOutlinePets />
-
           </button>
         </form>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default UpdatePet;

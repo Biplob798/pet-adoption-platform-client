@@ -51,7 +51,9 @@ export const router = createBrowserRouter([
         path: "/donationDetails/:id",
         element: <DonationDetails></DonationDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/campings/${params.id}`),
+          fetch(
+            `https://pet-adoption-platform-server-eight.vercel.app/campings/${params.id}`
+          ),
       },
       {
         path: "/login",
@@ -84,7 +86,10 @@ export const router = createBrowserRouter([
       {
         path: "updateItem/:id",
         element: <UpdatePet></UpdatePet>,
-        loader: ({ params }) => fetch(`http://localhost:5000/pet/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://pet-adoption-platform-server-eight.vercel.app/pet/${params.id}`
+          ),
       },
       {
         path: "addPet",

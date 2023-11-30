@@ -5,7 +5,7 @@ import CategoryItemCard from "../CategoryItemCard";
 const CategorySectionCard = () => {
   const [category, setCategory] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/categories")
+    fetch("https://pet-adoption-platform-server-eight.vercel.app/categories")
       .then((res) => res.json())
       .then((data) => setCategory(data));
   }, []);

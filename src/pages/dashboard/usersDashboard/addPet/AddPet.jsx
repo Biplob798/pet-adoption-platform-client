@@ -1,4 +1,3 @@
-
 import SectionTitle from "../../../../components/sectionTitle/SectionTitle";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic";
@@ -10,7 +9,7 @@ const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const AddPet = () => {
-  const { register, handleSubmit,reset } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const axiosPublic = useAxiosPublic();
   const onSubmit = async (data) => {
     console.log(data);
@@ -33,17 +32,20 @@ const AddPet = () => {
         image: res.data.data.display_url,
       };
 
-      const petRes = await axios.post("http://localhost:5000/pet", petItem);
+      const petRes = await axios.post(
+        "https://pet-adoption-platform-server-eight.vercel.app/pet",
+        petItem
+      );
       console.log(petRes.data);
-      if(petRes.data.insertedId){
-        reset()
+      if (petRes.data.insertedId) {
+        reset();
         Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Your Pet has been saved",
-            showConfirmButton: false,
-            timer: 1500
-          });
+          position: "top-end",
+          icon: "success",
+          title: "Your Pet has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
     }
 
@@ -136,7 +138,6 @@ const AddPet = () => {
 
           <button {...register("recipe")} className="btn btn-primary mt-4">
             Add Pet <MdOutlinePets />
-
           </button>
         </form>
       </div>
