@@ -19,7 +19,7 @@ const CategoryItemCard = ({ item }) => {
             </div>
           
           <div className="card-actions justify-end items-center">
-          <Link to='/sting'>  <button
+          <Link to='/donationCampings'>  <button
               className="btn btn-outline border-0 border-b-4 mt-4 bg-slate-100 border-orange-400 w-full"
             >
               View All

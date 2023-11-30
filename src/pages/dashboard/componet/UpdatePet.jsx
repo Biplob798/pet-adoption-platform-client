@@ -9,7 +9,7 @@ const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const UpdatePet = () => {
-    const {name,short,age,category,image,long,_id} =useLoaderData()
+    const {name,short,age,category,long,_id} =useLoaderData()
    
     const { register, handleSubmit,reset } = useForm();
   const axiosPublic = useAxiosPublic();
