@@ -8,7 +8,7 @@ const UserHome = () => {
       <div>
         <h2 className="text-4xl text-center mb-4"> Welcome !</h2>
         {
-            user?.displayName ?  user.displayName : 'Welcome Back'
+            user?.displayName ?  user.displayName : 'Welcome Back User'
         }
         
       </div>

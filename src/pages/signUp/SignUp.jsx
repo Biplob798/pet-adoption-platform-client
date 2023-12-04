@@ -10,6 +10,7 @@ const SignUp = () => {
   const { createUser, handleUpdateProfile } = useAuth();
   const navigate = useNavigate();
   const axiosPublic = useAxiosPublic();
+  
   const {
     register,
     handleSubmit,
@@ -63,7 +64,7 @@ const SignUp = () => {
         <div className="hero-content flex-col border">
           <div className="card shrink-0 w-full shadow-2xl bg-white text-black">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-              <div className="form-control text-white">
+              <div className="form-control ">
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
@@ -78,7 +79,7 @@ const SignUp = () => {
                   <span className="text-red-600">Name is required</span>
                 )}
               </div>
-              <div className="form-control text-white">
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text">Photo URL</span>
                 </label>
@@ -92,7 +93,7 @@ const SignUp = () => {
                   <span className="text-red-600">Photo URL is required</span>
                 )}
               </div>
-              <div className="form-control text-white">
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
@@ -107,7 +108,7 @@ const SignUp = () => {
                   <span className="text-red-600">Email is required</span>
                 )}
               </div>
-              <div className="form-control text-white">
+              <div className="form-control ">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
@@ -158,7 +159,7 @@ const SignUp = () => {
               <div className="divider">OR</div>
 
               {/* social login  */}
-                  <SocialLogin></SocialLogin>
+              <SocialLogin></SocialLogin>
             </form>
           </div>
         </div>

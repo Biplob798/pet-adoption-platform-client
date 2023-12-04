@@ -100,6 +100,10 @@ export const router = createBrowserRouter([
         element: <MyAddPets></MyAddPets>,
       },
       {
+        path: "myUpdatedPet",
+        element: <MyAddPets></MyAddPets>,
+      },
+      {
         path: "adoptionRequest",
         element: <AdoptionRequest></AdoptionRequest>,
       },

@@ -9,14 +9,15 @@ import Banner from "../banner/Banner";
 const Home = () => {
   return (
     <div>
-      <Helmet><title>Pet Adoption || Home </title></Helmet>
+      <Helmet>
+        <title>Pet Adoption || Home </title>
+      </Helmet>
       <Banner></Banner>
       <CategorySectionCard></CategorySectionCard>
       <CallToActionSection></CallToActionSection>
       <AboutUsSection></AboutUsSection>
       <PetAdoptionInfo></PetAdoptionInfo>
       <HappyOwner></HappyOwner>
-    
     </div>
   );
 };

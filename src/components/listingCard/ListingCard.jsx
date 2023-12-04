@@ -10,7 +10,7 @@ const ListingCard = ({ item }) => {
   const locations = useLocation();
   const axiosSecure = useAxiosSecure();
   const [, refetch] = usePets();
-  const { _id, name, title, img, short_description, age, location } = item;
+  const { _id, name, category, image, short, age, long, location } = item;
   const handleAddToListing = (listing) => {
     console.log(listing, user.email);
 
@@ -20,10 +20,12 @@ const ListingCard = ({ item }) => {
         menuId: _id,
         email: user.email,
         name,
-        img,
+        category,
+        image,
         age,
         location,
-        short_description,
+        short,
+        long
       };
       axiosSecure.post("/pets", petItem).then((res) => {
         console.log(res.data);
@@ -51,24 +53,30 @@ const ListingCard = ({ item }) => {
         <div>
           <div className="mb-8">
             <img
-              src={img}
+              src={image}
               alt=""
               className="w-full h-48 object-cover rounded-lg mb-4"
             />
-            <h3 className="text-xl font-bold mb-2">{name}</h3>
-            <h3 className="text-xl font-bold mb-2">{title}</h3>
-            <p className="text-gray-700">{short_description}</p>
+            <h3 className="text-xl font-bold mb-2">{category}</h3>
+            <p className="text-gray-700">{short}</p>
+            <p className="text-gray-700">{long}</p>
             <p>
-              #Location: {location}, #Age-{age}
+              #Age-{age}
             </p>
           </div>
+          <button
+            onClick={() => handleAddToListing(item)}
+            className="btn btn-outline border-0 border-b-4 mt-4 bg-gray-500 mb-4 border-blue-300 w-full"
+          >
+            View Details
+          </button>
           <div className="card-actions justify-end items-center">
             {/* The button to open modal */}
             <a
               href="#my_modal_8"
               className="btn btn-outline border-0 border-b-4 mt-4 bg-slate-100 border-orange-400 w-full"
             >
-              View Details
+              Adopt Button
             </a>
             {/* Put this part before </body> tag */}
             <div className="modal" role="dialog" id="my_modal_8">
@@ -139,14 +147,7 @@ const ListingCard = ({ item }) => {
           </div>
         </div>
       </div>
-      <div>
-        <button
-          onClick={() => handleAddToListing(item)}
-          className="btn btn-outline border-0 border-b-4 mt-4 bg-gray-500 mb-4 border-blue-300 w-full"
-        >
-          pet listing
-        </button>
-      </div>
+      <div></div>
     </div>
   );
 };

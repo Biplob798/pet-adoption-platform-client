@@ -4,11 +4,14 @@ import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { MdOutlinePets } from "react-icons/md";
+import useAuth from "../../../../hooks/useAuth";
+import SelectInput from "../../../../components/SelectInput";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const AddPet = () => {
+  const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
   const axiosPublic = useAxiosPublic();
   const onSubmit = async (data) => {
@@ -24,6 +27,7 @@ const AddPet = () => {
     if (res.data.success) {
       // send
       const petItem = {
+        email: user?.email,
         name: data.name,
         category: data.category,
         age: data.age,
@@ -33,7 +37,7 @@ const AddPet = () => {
       };
 
       const petRes = await axios.post(
-        "https://pet-adoption-platform-server-eight.vercel.app/pet",
+        "https://pet-adoption-platform-server-eight.vercel.app/pets",
         petItem
       );
       console.log(petRes.data);
@@ -88,7 +92,8 @@ const AddPet = () => {
               <label className="label">
                 <span className="label-text">category</span>
               </label>
-              <select
+              <SelectInput></SelectInput>
+              {/* <select
                 defaultValue={"default"}
                 {...register("category", { required: true })}
                 className="select select-bordered w-full"
@@ -100,7 +105,7 @@ const AddPet = () => {
                 <option value="Dog">Dog</option>
                 <option value="Fish">Fish</option>
                 <option value="Rabbit">Rabbit</option>
-              </select>
+              </select> */}
             </div>
             {/* age  */}
             <div className="form-control w-full my-6">
@@ -110,7 +115,7 @@ const AddPet = () => {
               <input
                 {...register("age", { required: true })}
                 type="number"
-                placeholder="price "
+                placeholder="age "
                 className="input input-bordered w-full"
               />
             </div>

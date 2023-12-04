@@ -5,11 +5,13 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import useAuth from "../../../hooks/useAuth";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const UpdatePet = () => {
   const { name, short, age, category, long, _id } = useLoaderData();
+  const { user } = useAuth();
 
   const { register, handleSubmit, reset } = useForm();
   const axiosPublic = useAxiosPublic();
@@ -26,6 +28,7 @@ const UpdatePet = () => {
     if (res.data.success) {
       // send
       const petItem = {
+        email: user?.email,
         name: data.name,
         category: data.category,
         age: data.age,
@@ -35,7 +38,7 @@ const UpdatePet = () => {
       };
 
       const petRes = await axios.patch(
-        `https://pet-adoption-platform-server-eight.vercel.app/pet/${_id}`,
+        `https://pet-adoption-platform-server-eight.vercel.app/pets/${_id}`,
         petItem
       );
       console.log(petRes.data);

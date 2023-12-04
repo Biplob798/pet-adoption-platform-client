@@ -2,6 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaTrash, FaUsers } from "react-icons/fa6";
 import Swal from "sweetalert2";
+// import React from "react";
+// import { useTable } from 'react-table';
+
 
 const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
@@ -12,6 +15,18 @@ const AllUsers = () => {
       return res.data;
     },
   });
+
+  // tanStack Table 
+  // const columns = React.useMemo(
+  //   () => [
+  //     { Header: 'ID', accessor: 'id' },
+  //     { Header: 'Name', accessor: 'name' },
+  //     { Header: 'Email', accessor: 'email' },
+  //     { Header: 'Phone', accessor: 'phone' },
+  //   ],
+  //   []
+  // );
+  // const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data: users || [] });
   const handleDeleteUser = (user) => {
     Swal.fire({
       title: "Are you sure want to delete?",
@@ -101,6 +116,9 @@ const AllUsers = () => {
             ))}
           </tbody>
         </table>
+      </div>
+      <div>
+        
       </div>
     </div>
   );

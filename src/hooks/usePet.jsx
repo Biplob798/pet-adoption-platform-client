@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import useAxiosPublic from "./useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 
@@ -17,17 +17,17 @@ const usePet = () => {
   // return [pet,loading]
 
   const {
-    data: pet = [],
+    data: allPet = [],
     isPending: loading,
     refetch,
   } = useQuery({
     queryKey: ["pet"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/pet");
+      const res = await axiosPublic.get("/pets");
       return res.data;
     },
   });
-  return [pet, loading, refetch];
+  return [pets, loading, refetch];
 };
 
 export default usePet;

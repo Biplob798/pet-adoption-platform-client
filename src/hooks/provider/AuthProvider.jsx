@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -59,6 +60,12 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+   // github login
+   const githubLogin = () => {
+    setIsLoading(true);
+    signInWithPopup(auth, GithubAuthProvider);
+  };
+
   //   observer user
 
   useEffect(() => {
@@ -90,6 +97,7 @@ const AuthProvider = ({ children }) => {
     signInUser,
     user,
     googleLogin,
+    githubLogin,
     handleUpdateProfile,
     logOut,
     isLoading,

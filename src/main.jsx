@@ -8,7 +8,7 @@ import AuthProvider from "./hooks/provider/AuthProvider.jsx";
 import {
   QueryClient,
   QueryClientProvider,
-  useQuery,
+  
 } from "@tanstack/react-query";
 const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById("root")).render(

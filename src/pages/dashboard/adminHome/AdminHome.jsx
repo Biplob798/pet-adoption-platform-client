@@ -7,7 +7,7 @@ const AdminHome = () => {
       <div className="bg-blue-200 min-h-screen p-6 ">
         <h2 className="text-4xl text-center"> Welcome Admin</h2>
         {
-            user?.displayName ?  user.displayName : 'Welcome Back'
+            user?.displayName ?  user.displayName : 'Welcome Back admin'
         }
         
       </div>

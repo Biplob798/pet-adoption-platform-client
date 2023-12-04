@@ -81,7 +81,7 @@ const Login = () => {
         <div className="hero-content flex-col border">
           <div className="card shrink-0 w-full shadow-2xl bg-white text-black">
             <form onSubmit={handleSignInUser} className="card-body">
-              <div className="form-control text-white">
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
@@ -93,7 +93,7 @@ const Login = () => {
                   required
                 />
               </div>
-              <div className="form-control text-white">
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
@@ -110,7 +110,7 @@ const Login = () => {
                   </a>
                 </label>
               </div>
-              <div className="form-control text-white">
+              <div className="form-control ">
                 <label className="label">
                   <LoadCanvasTemplate />
                 </label>

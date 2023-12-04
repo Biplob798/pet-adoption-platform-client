@@ -6,19 +6,17 @@ import slider4 from "../../../assets/banner3.jpg";
 import slider5 from "../../../assets/banner4.webp";
 import slider6 from "../../../assets/banner5.webp";
 
-
-
 const Banner = () => {
   return (
-    <Carousel>
+    <Carousel showThumbs={false} autoPlay>
       <div>
-        <img src={slider4} />
+        <img className="object-cover" src={slider4} />
       </div>
       <div>
-        <img src={slider5} />
+        <img className="object-cover" src={slider5} />
       </div>
       <div>
-        <img src={slider6} />
+        <img className="object-cover" src={slider6} />
       </div>
     </Carousel>
   );
